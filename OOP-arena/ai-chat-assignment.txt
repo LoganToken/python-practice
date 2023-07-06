@@ -1,0 +1,77 @@
+Prompt: give me a short project (<2 hours) where I need to use object oriented programming and the SOLID principles. Make it interesting
+
+Response:
+How about a simple text-based game that uses object-oriented programming and the SOLID principles?
+
+**Project: Battle Arena**
+
+In this game, the player is a hero who must battle a series of monsters in an arena. Each monster has its own unique abilities and strengths, and the hero must use careful strategy to defeat them all.
+
+**Requirements:**
+
+1. The game should be written using object-oriented programming principles and follow the SOLID principles.
+2. The game should be text-based and run in a console or terminal window.
+3. There should be at least 3 different types of monsters, each with their own set of abilities, strengths, and weaknesses.
+4. The hero should have unique abilities and attributes as well.
+5. The hero should be able to choose which monster to battle next.
+6. The game should loop through battles until the hero defeats all the monsters or is defeated themselves.
+7. The game should display a victory message if the hero defeats all the monsters, or a defeat message if the hero is defeated.
+
+**Design:**
+
+1. Create a `Hero` class that has attributes like `name`, `health`, `weapon`, and `ability`. Use inheritance to create subclasses of `Hero` that specialize in different skills or weapons.
+2. Create a `Monster` class that has attributes like `name`, `health`, and `ability`. Again, use inheritance to create subclasses of `Monster` that have unique abilities and strengths.
+3. Use composition to create an `Arena` class that contains a list of monsters and a reference to the hero. This class should handle the logic of choosing which monster to battle next, handling the fight, and updating the hero's and monster's health.
+4. Use the Dependency Inversion Principle to allow the `Hero` and `Monster` classes to have dependencies on each other through abstractions like interfaces or methods.
+
+**Example Implementation:**
+
+Here's a simple outline for how the code might look:
+
+```
+class Hero:
+    ...
+
+class Mage(Hero):
+    ...
+
+class Warrior(Hero):
+    ...
+
+class Monster:
+   ...
+
+class Goblin(Monster):
+   ...
+
+class Troll(Monster):
+    ...
+
+class Arena:
+    def __init__(self, hero, monsters):
+        self.hero = hero
+        self.monsters = monsters
+
+    def choose_monster(self):
+        ...
+
+    def battle(self, monster):
+        ...
+
+    def run(self):
+        while len(self.monsters) > 0:
+            monster = self.choose_monster()
+            self.battle(monster)
+
+        print("You have defeated all the monsters!")
+
+
+if __name__ == '__main__':
+    hero = Mage("Gandalf", 100, "staff", "fireball")
+    monsters = [Goblin("Gobbo", 50, "poison bite"), Troll("Biggy", 200, "smash")]
+
+    arena = Arena(hero, monsters)
+    arena.run()
+```
+
+This is just an example, but you can modify and expand the project to include more features, such as more heroes and monsters, randomly generated arenas, or different battle scenarios. The key is to use SOLID principles to design the classes and use object-oriented programming to implement the game mechanics.
